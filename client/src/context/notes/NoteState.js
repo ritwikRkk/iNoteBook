@@ -7,7 +7,8 @@ const NoteState = (props) => {
   const context = useContext(alertContext);
   const { showAlert } = context;
 
-  const host = "http://localhost:5000"
+  // const host = "http://localhost:5000";
+  const host = "https://inotebook-server-eight.vercel.app";
   const notesInitial = [];
   const [notes, setNotes] = useState(notesInitial);
 
