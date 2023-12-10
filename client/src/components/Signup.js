@@ -42,11 +42,12 @@ const Signup = () => {
     event.preventDefault();
 
     let {name, email, password} = credentials;
-    const host = "https://inotebook-server-eight.vercel.app";
+    const host = process.env.REACT_APP_API_URI;
     const response = await fetch(`${host}/api/auth/createuser`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'api-token': process.env.REACT_APP_API_TOKEN,
       },
       body: JSON.stringify({ name, email, password })
     });

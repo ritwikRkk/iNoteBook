@@ -16,12 +16,13 @@ const Login = () => {
     };
 
     const handleSubmit = async (event) => {
-        const host = "https://inotebook-server-eight.vercel.app";
+        const host = process.env.REACT_APP_API_URI;
         event.preventDefault();
         const response = await fetch(`${host}/api/auth/login`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'api-token': process.env.REACT_APP_API_TOKEN,
             },
             body: JSON.stringify({ email: credentials.email, password: credentials.password })
         });

@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const fetchUser = require('../middleware/fetchUser');
 
 
-const JWT_SECRET = 'Rohitisagoodb$oy';
+const JWT_SECRET = process.env.JWT_SECRET;;
 
 
 

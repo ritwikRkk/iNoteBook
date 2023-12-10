@@ -8,7 +8,7 @@ const NoteState = (props) => {
   const { showAlert } = context;
 
   // const host = "http://localhost:5000";
-  const host = "https://inotebook-server-eight.vercel.app";
+  const host = process.env.REACT_APP_API_URI;
   const notesInitial = [];
   const [notes, setNotes] = useState(notesInitial);
 
@@ -19,6 +19,7 @@ const NoteState = (props) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        'api-token': process.env.REACT_APP_API_TOKEN,
         'auth-token': localStorage.getItem("auth-token")
       },
     });
@@ -35,6 +36,7 @@ const NoteState = (props) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'api-token': process.env.REACT_APP_API_TOKEN,
         'auth-token': localStorage.getItem("auth-token")
       },
       body: JSON.stringify({ title, description, tag })
@@ -61,6 +63,7 @@ const NoteState = (props) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
+        'api-token': process.env.REACT_APP_API_TOKEN,
         'auth-token': localStorage.getItem("auth-token")
       },
     });
@@ -87,6 +90,7 @@ const NoteState = (props) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
+        'api-token': process.env.REACT_APP_API_TOKEN,
         'auth-token': localStorage.getItem("auth-token")
       },
       body: JSON.stringify(data)
