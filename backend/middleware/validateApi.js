@@ -1,13 +1,13 @@
 // Check if the request is coming from the my client/frontend server
 
-const  checkUserAgent = (userAgent) =>{
+const checkUserAgent = (userAgent) => {
     // console.log(userAgent);
     const regex = /^mozilla\/5.0/i;
     let isMatch = regex.test(userAgent);
     return isMatch;
 }
 
-const allowApiRequest = (origin, referer, userAgent)=>{
+const allowApiRequest = (origin, referer, userAgent) => {
     return process.env.CLIENT_ORIGIN === origin && referer !== undefined && checkUserAgent(userAgent);
 }
 
@@ -28,7 +28,7 @@ const validateApi = (req, res, next) => {
         if (apiToken === process.env.api_token && allowApiRequest(origin, referer, userAgent)) {
             next();
         } else {
-            return res.status(401).send({ error: "Unauthorized Access, please check your API Token key." });
+            return res.status(401).send({ error: "Unauthorized Access, You're not authorized to make this api request." });
         }
     } catch (error) {
         return res.status(401).send({ error: "Some Error occured." });
