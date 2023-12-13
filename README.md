@@ -47,7 +47,7 @@ First Install Monogodb by following the links below:
 
 [Mongodb Shell](https://www.mongodb.com/try/download/shell)
 
-[Installation video Link]( https://inotebook-sage.vercel.app/)
+[Installation video Link]( https://www.youtube.com/watch?v=oC6sKlhz0OE&list=WL)
 
 
 Clone the entire project
